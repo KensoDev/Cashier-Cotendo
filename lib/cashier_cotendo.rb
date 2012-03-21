@@ -1,6 +1,8 @@
 require "cashier_cotendo/version"
 
 module CashierCotendo
+  PREFIX = "_cot_"
+
   def self.on_cache_write(key)
     
   end
@@ -11,5 +13,13 @@ module CashierCotendo
 
   def self.base_url=(url)
     @@base_url = url
+  end
+
+  def self.redis=(redis)
+    @@redis = redis
+  end
+
+  def self.redis
+    @@redis
   end
 end
