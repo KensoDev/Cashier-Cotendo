@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Avi Tzurel"]
   s.email       = ["avi@kensodev.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Cashier gem plugin for invalidating cotendo full page cache}
-  s.description = %q{TODO: Cashier gem plugin for invalidating cotendo full page cache}
+  s.summary     = %q{Cashier gem plugin for invalidating cotendo full page cache}
+  s.description = %q{Cashier gem plugin for invalidating cotendo full page cache}
 
   s.rubyforge_project = "cashier_cotendo"
 
