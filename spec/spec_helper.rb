@@ -29,7 +29,6 @@ RSpec.configure do |config|
       "dir"           => Rails.root.join('tmp', 'cache'),
     }.map { |k, v| "#{k} #{v}" }.join('\n')
     `echo '#{redis_options}' | redis-server -`
-
   end
 
   config.before(:each) do
