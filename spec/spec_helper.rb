@@ -1,8 +1,5 @@
-require 'simplecov'
 require 'redis'
 require 'cashier_cotendo'
-
-SimpleCov.start
 
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
 
@@ -23,5 +20,5 @@ RSpec.configure do |config|
   config.after :suite do
     
   end
-  
+
 end
