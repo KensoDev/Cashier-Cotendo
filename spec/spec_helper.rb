@@ -9,7 +9,6 @@ require 'cashier'
 
 ENV['RAILS_ENV'] = 'test'
 require 'dummy/config/environment'
-require 'dummy_plugins/dummy_plugin'
 
 require 'rspec/rails'
 
@@ -31,11 +30,9 @@ RSpec.configure do |config|
     }.map { |k, v| "#{k} #{v}" }.join('\n')
     `echo '#{redis_options}' | redis-server -`
 
-    Cashier::Adapters::RedisStore.redis = Redis.new(:host => '127.0.0.1', :port => 6397)
   end
 
   config.before(:each) do
-    Cashier::Adapters::RedisStore.redis.flushdb
     Rails.cache.clear
   end
 
