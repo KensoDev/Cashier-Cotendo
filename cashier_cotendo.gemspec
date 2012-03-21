@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Avi Tzurel"]
   s.email       = ["avi@kensodev.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{TODO: Cashier gem plugin for invalidating cotendo full page cache}
+  s.description = %q{TODO: Cashier gem plugin for invalidating cotendo full page cache}
 
   s.rubyforge_project = "cashier_cotendo"
 
@@ -18,7 +18,11 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_development_dependency 'rails', '~> 3.0'
+
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'dalli'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'redis', '~> 2.2.0'
 end
