@@ -4,6 +4,12 @@ describe CashierCotendo do
 
   subject { CashierCotendo }
 
+  context "prefixed key" do
+    it "should return the prefixed key" do
+      subject.get_prefixed_key("some_key").should == "_cot_::some_key"
+    end
+  end
+
   context "Redis" do
     it "should have a redis method" do
       subject.should respond_to(:redis)
@@ -19,7 +25,16 @@ describe CashierCotendo do
     end
   end
 
-  context "Callback method" do
+  context "Callback method :on_cache_delete" do
+    before(:each) do
+      subject.redis = $redis
+      subject.base_url = "/paris"
+      subject.on_cache_write("some_key")
+    end
+
+  end
+
+  context "Callback method :on_cache_write" do
     before(:each) { subject.base_url = "/paris" }
     before(:each) { subject.redis = $redis }
 
@@ -31,8 +46,6 @@ describe CashierCotendo do
       subject.on_cache_write("some_key")
       $redis.get("#{CashierCotendo::PREFIX}::some_key").should == subject.base_url
     end
-
-
   end
     
   context "Base URL" do
@@ -49,10 +62,5 @@ describe CashierCotendo do
       subject.base_url.should == "/paris"
     end
   end
-
-
-
-
-
-
+  
 end
